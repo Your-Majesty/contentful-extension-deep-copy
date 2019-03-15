@@ -6,7 +6,7 @@ let newReferenceCount = 0
 let updatedReferenceCount = 0
 
 const statusUpdateTimeout = 3000
-const waitTime = 10
+const waitTime = 100
 
 async function wait (ms) {
   return new Promise(resolve => {
