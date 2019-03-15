@@ -1,16 +1,4 @@
-function log (str) {
-  if (window) {
-    const ce = new CustomEvent('deepcopylog', {
-      detail: {
-        log: str
-      }
-    })
-    window.dispatchEvent(ce)
-  }
-  if (console) {
-    console.log('DeepCopy: ' + str)
-  }
-}
+import { log } from './log'
 
 async function getUpdatedField(space, field, tag, depth) {
   if (field && Array.isArray(field)) {
@@ -69,3 +57,8 @@ async function recursiveClone (space, id, tag, depth) {
 export {
   recursiveClone
 }
+
+//  Find all references
+//    if a reference is already "seen", ignore
+//  Create new entries from all saved references
+//  Update all new entries with new references

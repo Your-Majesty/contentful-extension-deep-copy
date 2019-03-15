@@ -1,5 +1,5 @@
 import { init as initContentfulExtension } from 'contentful-ui-extensions-sdk'
-import { recursiveClone } from './deep-copy'
+import { recursiveClone } from './deep-copy2'
 
 let space = null
 let entry = null
@@ -40,8 +40,7 @@ window.doTheDeepCopy = async function() {
   if (extension.window.updateHeight) extension.window.updateHeight()
 
   const sys = entry.getSys()
-  addToLog('Clone started...')
-  const clonedEntry = await recursiveClone(space, sys.id, tag, 0)
+  const clonedEntry = await recursiveClone(space, sys.id, tag)
   addToLog('')
   addToLog('<strong>Clone successful!<strong>')
   addToLog('New entry at:')
